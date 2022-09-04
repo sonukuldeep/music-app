@@ -1,11 +1,18 @@
-import './ComponentQueueStyle.css';
+import './CQS.css';
 import { Link } from 'react-router-dom'
 import logo from '../images/logo.png';
+import SearchQuere from './SearchQuere';
+import { useState } from 'react'
 
 
 
 
 const ContentQueue = () => {
+    const [popupstate, setPopupstate] = useState('popup-disable')
+    const popupInvoke = ()=> {
+        popupstate === 'popup-disable'? setPopupstate('popup'):setPopupstate('popup-disable');
+        // console.log('popup invoked ',popupstate);
+    }
     return (
         <>
             <header>
@@ -24,7 +31,7 @@ const ContentQueue = () => {
                             <li>
                                 <div className='navbar1'>
                                     <ul>
-                                        <li><Link to='#'>Search</Link></li>
+                                        <li><Link onClick={()=>{popupInvoke()}} to='#'>Search</Link></li>
                                         <li><Link to='#'>Log In</Link></li>
                                     </ul>
                                 </div>
@@ -33,7 +40,7 @@ const ContentQueue = () => {
                     </div>
                 </nav>
             </header>
-            
+            <SearchQuere state={popupstate} popupInvoke={popupInvoke}/>
         </>
     )
 }

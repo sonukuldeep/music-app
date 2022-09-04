@@ -1,4 +1,5 @@
-import albumArt from "../images/album-art.png";
+import './UB.css'
+;import albumArt from "../images/album-art.png";
 import playControls from "../images/playControls.jpg";
 import React, { useContext } from "react";
 import NoteContext from "../Context/Notes/NoteContext";
