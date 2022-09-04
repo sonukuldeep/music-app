@@ -1,19 +1,23 @@
-import React from 'react';
-import albumArt from '../images/album-art.png';
-import playlist from '../images/playlist.jpg';
-import playControls from '../images/playControls.jpg';
+import albumArt from "../images/album-art.png";
+import playControls from "../images/playControls.jpg";
+import React, { useContext } from "react";
+import NoteContext from "../Context/Notes/NoteContext";
+
 
 const UiBlock = () => {
+    const data = useContext(NoteContext);
+    // console.log(data);
   return (
     <>
       <section >
-                <article class='UI-block-container'>
+                <article className='UI-block-container'>
                     <div className='UI-block'>
                         <div className="item">
                             <img src={albumArt} alt='album art'></img>
                         </div>
                         <div className="item">
-                            <img src={playlist} alt='playlist'></img>
+                            {/* <img src={playlist} alt='playlist'></img> */}
+                            <p> this is the user name {data.name}</p>
                         </div>
                         <div className="item">
                             <img src={playControls} alt='play control'></img>
