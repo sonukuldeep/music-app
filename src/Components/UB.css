@@ -14,8 +14,21 @@
     max-width: 350px;
 }
 
-.item:nth-of-type(3){
+.item:nth-child(3){
     grid-column: 1 / span 2;
 }
 
-p{ color: white}
+
+
+.item:nth-child(2) {
+    color: wheat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+a {
+    text-decoration: none;
+    
+}
