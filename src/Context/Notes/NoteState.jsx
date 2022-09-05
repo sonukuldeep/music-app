@@ -25,7 +25,7 @@ const NoteState = (props) => {
     'title': 'Milk Shake',
     'artist': 'Coma-media',
     'image': '',
-    'audioSrc': 'https://cdn.pixabay.com/download/audio/2022/08/04/audio_2dde668d05.mp3?filename=goldn-116392.mp3'
+    'audioSrc': 'https://cdn.pixabay.com/download/audio/2022/08/03/audio_54ca0ffa52.mp3?filename=milk-shake-116330.mp3'
   }
   ])
 

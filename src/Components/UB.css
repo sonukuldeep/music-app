@@ -32,3 +32,19 @@ a {
     text-decoration: none;
     
 }
+
+button {
+    padding: 8px 5px;
+    margin: 5px;
+    background-color: #141414;
+    color: white;
+    font-weight: bolder;
+    border: none;
+    border-radius: 10px;
+    /* outline:none */
+}
+
+button:hover {
+    box-shadow: 0 0 5px 2px skyblue;
+}
+
