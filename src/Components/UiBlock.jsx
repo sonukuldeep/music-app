@@ -13,7 +13,10 @@ const UiBlock = () => {
     const [currentSongIndex, setCurrentSongIndex] = useState(0);
     const [nextSongIndex, setNextSongIndex] = useState(1);
     const [previousSong, setPreviousSong] = useState(songData.length - 1)
-
+    function getRanSongIndex(){
+        setCurrentSongIndex(Math.floor(Math.random() * songData.length))
+    }
+    
     useEffect(() => {
         setNextSongIndex(() => {
             audioE1.current.play();
@@ -24,6 +27,7 @@ const UiBlock = () => {
             return (currentSongIndex === 0) ? (songData.length - 1) : (currentSongIndex - 1)
         })
     }, [currentSongIndex, songData.length])
+
 
     useEffect(() => {
         isPlaying ? audioE1.current.play() : audioE1.current.pause()
@@ -56,6 +60,7 @@ const UiBlock = () => {
                             <div>
                             <button className='playerControls' onClick={() => { setCurrentSongIndex(previousSong) }}>Previous</button>
                             <button className='playerControls' onClick={() => { setCurrentSongIndex(nextSongIndex) }}>Next</button>
+                            <button className='playerControls' onClick={getRanSongIndex}>Shuffle</button>
                             </div>
                         </div>
                     </div>
