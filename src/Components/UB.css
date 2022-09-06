@@ -48,3 +48,6 @@ button:hover {
     box-shadow: 0 0 5px 2px skyblue;
 }
 
+span {
+    color: white;
+}
