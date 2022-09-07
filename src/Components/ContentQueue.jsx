@@ -2,15 +2,19 @@ import './CQS.css';
 import { Link } from 'react-router-dom'
 import logo from '../images/logo.png';
 import SearchQuere from './SearchQuere';
-import { useState } from 'react'
+import { useState, useContext } from 'react'
+import NoteContext from "../Context/Notes/NoteContext";
 
 
 
 
 const ContentQueue = () => {
+    // context
+    const songData = useContext(NoteContext);
+
     const [popupstate, setPopupstate] = useState('popup-disable')
-    const popupInvoke = ()=> {
-        popupstate === 'popup-disable'? setPopupstate('popup'):setPopupstate('popup-disable');
+    const popupInvoke = () => {
+        popupstate === 'popup-disable' ? setPopupstate('popup') : setPopupstate('popup-disable');
         // console.log('popup invoked ',popupstate);
     }
     return (
@@ -31,7 +35,7 @@ const ContentQueue = () => {
                             <li>
                                 <div className='navbar1'>
                                     <ul>
-                                        <li><Link onClick={()=>{popupInvoke()}} to='#'>Search</Link></li>
+                                        <li><Link onClick={() => { popupInvoke() }} to='#'>Search</Link></li>
                                         <li><Link to='#'>Log In</Link></li>
                                     </ul>
                                 </div>
@@ -40,7 +44,7 @@ const ContentQueue = () => {
                     </div>
                 </nav>
             </header>
-            <SearchQuere state={popupstate} popupInvoke={popupInvoke}/>
+            <SearchQuere state={popupstate} popupInvoke={popupInvoke} songs={songData}/>
         </>
     )
 }

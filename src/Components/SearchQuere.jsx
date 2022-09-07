@@ -1,7 +1,8 @@
 import React from 'react'
 import './SQ.css';
 
-const SearchQuere = ({state, popupInvoke}) => {
+
+const SearchQuere = ({state, popupInvoke,songs}) => {
   return (
     <>
     <div className={state}>
@@ -9,7 +10,9 @@ const SearchQuere = ({state, popupInvoke}) => {
         <div className="content">
             <div className="close-btn" onClick={()=>{popupInvoke()}}>&times;</div>
             <h2>Title</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni asperiores harum nulla temporibus facilis doloremque ex, sed voluptatem voluptate aspernatur.</p>
+            {songs.map((song,index)=>{
+              return( <div key={index}>{song.title} {song.artist} <button>x</button></div>)
+            })}
         </div>
     </div>
     </>

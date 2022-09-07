@@ -2,7 +2,7 @@ import './UB.css';
 import albumArt from "../images/album-art.png";
 import React, { useContext, useState, useEffect, useRef } from "react";
 import NoteContext from "../Context/Notes/NoteContext";
-
+import Playlist from './Playlist';
 
 
 const UiBlock = () => {
@@ -17,11 +17,13 @@ const UiBlock = () => {
     const [currentTrackLength, setCurrentTrackLength] = useState(0)
     const [currentDuration, setCurrentDuration] = useState(0)
     const [volume, setVolume] = useState(50)
+   
 
     // use ref
     const audioE1 = useRef(0)
     const volumeSlider = useRef(0)
 
+    //random function for shuffle
     function getRanSongIndex() {
         setCurrentSongIndex(Math.floor(Math.random() * songData.length))
     }
@@ -40,15 +42,11 @@ const UiBlock = () => {
         try {
             let duration = Math.ceil(audioE1.current.currentTime)
             setCurrentDuration(timeFormating(duration))
-            // console.log(duration)
         }
         catch (err) {
 
         }
     }, 1000);
-
-
-
 
     // setting next song index, previous song index and current track length
     useEffect(() => {
@@ -62,18 +60,18 @@ const UiBlock = () => {
             return (currentSongIndex === 0) ? (songData.length - 1) : (currentSongIndex - 1)
         })
 
-        
+        //need a better solution
         try {
             setTimeout(() => {
                 let trackLength = Math.floor(audioE1.current.duration)
                 setCurrentTrackLength(timeFormating(trackLength))
-    
+
             }, 200);
-        } catch{
+        } catch {
             setTimeout(() => {
                 let trackLength = Math.floor(audioE1.current.duration)
                 setCurrentTrackLength(timeFormating(trackLength))
-    
+
             }, 1500);
         }
 
@@ -102,10 +100,9 @@ const UiBlock = () => {
                             <img src={albumArt} alt='album art'></img>
                         </div>
                         <div className="item">
-                            <ul>
-                                <li>current song title: {songData[currentSongIndex].title}</li>
-                                <li>by: {songData[currentSongIndex].artist}</li>
-                            </ul>
+                            {songData.map((song,index)=>{
+                                return <Playlist key={index} title={song.title} artist={song.artist}/>
+                            })}
                         </div>
                         <div className="item audio-element">
                             <audio
@@ -121,7 +118,6 @@ const UiBlock = () => {
                                 <button className='playerControls' onClick={getRanSongIndex}>Shuffle</button>
                                 <button className='playerControls' onClick={muteUnmute}>Mute/Unmute</button>
                                 <button className='playerControls' onClick={() => { setIsPlaying(!isPlaying) }}>Play/Pause</button>
-                                {/* <button className='playerControls' onClick={show}>showTime</button> */}
                                 <div>
                                     <span>{currentDuration}</span>
                                     <span> / {currentTrackLength}</span>
