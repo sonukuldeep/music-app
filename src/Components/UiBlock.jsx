@@ -9,6 +9,9 @@ const UiBlock = () => {
     // context
     const songData = useContext(NoteContext);
 
+    //get playlist
+    const playlistData = JSON.parse(localStorage.getItem('playlist'))
+
     // use state
     const [isPlaying, setIsPlaying] = useState(false)
     const [currentSongIndex, setCurrentSongIndex] = useState(0);
@@ -17,7 +20,7 @@ const UiBlock = () => {
     const [currentTrackLength, setCurrentTrackLength] = useState(0)
     const [currentDuration, setCurrentDuration] = useState(0)
     const [volume, setVolume] = useState(50)
-   
+
 
     // use ref
     const audioE1 = useRef(0)
@@ -100,9 +103,10 @@ const UiBlock = () => {
                             <img src={albumArt} alt='album art'></img>
                         </div>
                         <div className="item">
-                            {songData.map((song,index)=>{
+                            <Playlist playlistData={playlistData} songs={songData} />
+                            {/* {songData.map((song,index)=>{
                                 return <Playlist key={index} title={song.title} artist={song.artist}/>
-                            })}
+                            })} */}
                         </div>
                         <div className="item audio-element">
                             <audio

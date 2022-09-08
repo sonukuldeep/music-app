@@ -7,25 +7,57 @@ const NoteState = (props) => {
     'title': 'Tuesday',
     'artist': 'Amaksi',
     'image': '',
-    'audioSrc': 'https://cdn.pixabay.com/download/audio/2022/08/25/audio_4f3b0a816e.mp3?filename=tuesday-glitch-soft-hip-hop-118327.mp3'
+    'audioSrc': '../../Music/Baby be mine.mp3',
+    'id': 0
   },
   {
     'title': 'The Blackest Bouquet',
     'artist': 'Leonell Cassio',
     'image': '',
-    'audioSrc': 'https://cdn.pixabay.com/download/audio/2022/08/31/audio_419263fc12.mp3?filename=leonell-cassio-the-blackest-bouquet-118766.mp3'
+    'audioSrc': '../../Music/Beat it.mp3',
+    'id': 1
   },
   {
     'title': 'Goldn',
     'artist': 'Prazkhal',
     'image': '',
-    'audioSrc': 'https://cdn.pixabay.com/download/audio/2022/08/04/audio_2dde668d05.mp3?filename=goldn-116392.mp3'
+    'audioSrc': '../../Music/Billie Jean (home demo 1981).mp3',
+    'id': 2
   },
   {
     'title': 'Milk Shake',
     'artist': 'Coma-media',
     'image': '',
-    'audioSrc': 'https://cdn.pixabay.com/download/audio/2022/08/03/audio_54ca0ffa52.mp3?filename=milk-shake-116330.mp3'
+    'audioSrc': '../../Music/Billie Jean.mp3',
+    'id': 3
+  },
+  {
+    'title': 'Milk Shake',
+    'artist': 'Coma-media',
+    'image': '',
+    'audioSrc': '../../Music/Carousel.mp3',
+    'id': 4
+  },
+  {
+    'title': 'Milk Shake',
+    'artist': 'Coma-media',
+    'image': '',
+    'audioSrc': '../../Music/Billie Jean.mp3',
+    'id': 5
+  },
+  {
+    'title': 'Milk Shake',
+    'artist': 'Coma-media',
+    'image': '',
+    'audioSrc': '../../Music/Billie Jean.mp3',
+    'id': 6
+  },
+  {
+    'title': 'Milk Shake',
+    'artist': 'Coma-media',
+    'image': '',
+    'audioSrc': '../../Music/Billie Jean.mp3',
+    'id': 7
   }
   ])
 

@@ -1,10 +1,19 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
-const Playlist = ({title,artist}) => {
-    
+const Playlist = ({playlistData,songs}) => {
+    const filter = playlistData.filter((song)=>{
+      return song.status === true
+    })
+
+    useEffect(()=>{
+      console.log(playlistData);
+    },[filter])
+
   return (
     <div>
-        <button>{title} by {artist}</button>
+        {filter.map((x)=>{
+          return <div>{songs[x.id].title}</div>
+        })}
     </div>
   )
 }

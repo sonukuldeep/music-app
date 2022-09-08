@@ -4,7 +4,7 @@
     left: 0px;
     width: 100vw;
     height: 100vh;
-    background: rgba(0,0,0,0.7);
+    background: rgba(0, 0, 0, 0.7);
     z-index: 1;
     /* display: none; */
 }
@@ -13,7 +13,7 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    transform:translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     background: #fff;
     width: 450px;
     height: 220px;
@@ -37,20 +37,31 @@
     cursor: pointer;
 }
 
-/* .popup.active .overlay {
-    display: block;
-    
-}
+.content .title {
+    position: absolute;
+    top: 2px;
+    left: 50%;
+    transform: translate(-50%, 0);
 
-.popup.active .content{
-    translate: all 300ms ease-in-out;
-    transform: translate(-50%,-50%) scale(1);
-} */
-
-.content p {
-    color: black;
 }
 
 .popup-disable {
     display: none;
+}
+
+.song-list {
+    /* outline: 2px solid red; */
+    overflow: auto;
+    height: 160px;
+    margin-top: 20px;
+
+}
+
+.song-list .song-list-btn {
+    background-color: antiquewhite;
+    color: black;
+}
+
+.song-list-btn.btn-status-true {
+    background-color: lightgreen;
 }
