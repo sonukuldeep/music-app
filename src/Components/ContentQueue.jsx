@@ -8,13 +8,18 @@ import NoteContext from "../Context/Notes/NoteContext";
 
 
 
-const ContentQueue = () => {
+const ContentQueue = ({ triggerFun, triggerVal }) => {
     // context
     const songData = useContext(NoteContext);
 
     const [popupstate, setPopupstate] = useState('popup-disable')
     const popupInvoke = () => {
-        popupstate === 'popup-disable' ? setPopupstate('popup') : setPopupstate('popup-disable');
+        if (popupstate === 'popup-disable')
+            setPopupstate('popup')
+        else{
+            setPopupstate('popup-disable'); 
+            triggerFun(!triggerVal)
+        }
         // console.log('popup invoked ',popupstate);
     }
     return (
@@ -44,7 +49,7 @@ const ContentQueue = () => {
                     </div>
                 </nav>
             </header>
-            <SearchQuere state={popupstate} popupInvoke={popupInvoke} songs={songData}/>
+            <SearchQuere state={popupstate} popupInvoke={popupInvoke} songs={songData} />
         </>
     )
 }

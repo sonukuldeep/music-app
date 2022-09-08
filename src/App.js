@@ -5,16 +5,18 @@ import {
 import ComponentQueue from './Components/ContentQueue';
 import UiBlock from './Components/UiBlock';
 import NoteState from './Context/Notes/NoteState';
+import {useState} from 'react'
 
 
 function App() {
+  const [triggerPlaylist, setTriggerPlaylist] = useState(false)
   return (
     <>
       <NoteState>
     <Router>
     <div className='container'>
-    <ComponentQueue/>
-    <UiBlock/>
+    <ComponentQueue triggerFun={setTriggerPlaylist} triggerVal={triggerPlaylist}/>
+    <UiBlock trigger={triggerPlaylist}/>
     </div>
     </Router>
     </NoteState>

@@ -1,20 +1,23 @@
-import React, { useEffect } from 'react'
+import React, {useState, useEffect } from 'react'
 
-const Playlist = ({playlistData,songs}) => {
-    const filter = playlistData.filter((song)=>{
+const Playlist = ({playlistData,songs,trigger}) => {
+  const [filter, setFilter] = useState(
+    playlistData.filter((song)=>{
       return song.status === true
-    })
+    }))
 
     useEffect(()=>{
-      console.log(playlistData);
-    },[filter])
+      setFilter(playlistData.filter((song)=>{
+        return song.status === true
+      }))
+    },[trigger,playlistData])
 
   return (
-    <div>
+    <>
         {filter.map((x)=>{
-          return <div>{songs[x.id].title}</div>
+          return <div>{songs[x.id].title} by {songs[x.id].artist}</div>
         })}
-    </div>
+    </>
   )
 }
 

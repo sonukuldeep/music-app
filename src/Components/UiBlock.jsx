@@ -5,7 +5,7 @@ import NoteContext from "../Context/Notes/NoteContext";
 import Playlist from './Playlist';
 
 
-const UiBlock = () => {
+const UiBlock = ({trigger}) => {
     // context
     const songData = useContext(NoteContext);
 
@@ -103,7 +103,7 @@ const UiBlock = () => {
                             <img src={albumArt} alt='album art'></img>
                         </div>
                         <div className="item">
-                            <Playlist playlistData={playlistData} songs={songData} />
+                            <Playlist playlistData={playlistData} songs={songData} trigger={trigger} />
                             {/* {songData.map((song,index)=>{
                                 return <Playlist key={index} title={song.title} artist={song.artist}/>
                             })} */}
