@@ -64,7 +64,7 @@ function PlaylistStatusGen(songs,playlistInLocalStorage) {
   if(playlistInLocalStorage) return playlistInLocalStorage;
   let temp = [];
   songs.forEach((song,index) => {
-    temp[index] = {'id': song.id,'status': false}
+    temp[index] = {'id': song.songid,'status': false}
   })
   return temp;
 }
@@ -72,7 +72,7 @@ function PlaylistStatusGen(songs,playlistInLocalStorage) {
 // modity btn status
 function ModifyBtnStatus(btnStatus,song) {
   let temp = [...btnStatus];
-      temp[song.id].status = !temp[song.id].status;
+      temp[song.songid].status = !temp[song.songid].status;
       return temp;
 }
 

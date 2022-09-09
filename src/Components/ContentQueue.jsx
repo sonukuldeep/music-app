@@ -3,14 +3,14 @@ import { Link } from 'react-router-dom'
 import logo from '../images/logo.png';
 import SearchQuere from './SearchQuere';
 import { useState, useContext } from 'react'
-import NoteContext from "../Context/Notes/NoteContext";
+import PlaylistContext from "../Context/Notes/PlaylistContext";
 
 
 
 
 const ContentQueue = ({ triggerFun, triggerVal }) => {
     // context
-    const songData = useContext(NoteContext);
+    const songData = useContext(PlaylistContext);
 
     const [popupstate, setPopupstate] = useState('popup-disable')
     const popupInvoke = () => {

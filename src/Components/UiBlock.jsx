@@ -1,13 +1,13 @@
 import './UB.css';
 import albumArt from "../images/album-art.png";
 import React, { useContext, useState, useEffect, useRef } from "react";
-import NoteContext from "../Context/Notes/NoteContext";
+import PlaylistContext from "../Context/Notes/PlaylistContext";
 import Playlist from './Playlist';
 
 
 const UiBlock = ({trigger}) => {
     // context
-    const songData = useContext(NoteContext);
+    const songData = useContext(PlaylistContext);
 
     //get playlist
     const playlistData = JSON.parse(localStorage.getItem('playlist'))
@@ -16,7 +16,7 @@ const UiBlock = ({trigger}) => {
     const [isPlaying, setIsPlaying] = useState(false)
     const [currentSongIndex, setCurrentSongIndex] = useState(0);
     const [nextSongIndex, setNextSongIndex] = useState(1);
-    const [previousSong, setPreviousSong] = useState(songData.length - 1)
+    const [previousSong, setPreviousSong] = useState()
     const [currentTrackLength, setCurrentTrackLength] = useState(0)
     const [currentDuration, setCurrentDuration] = useState(0)
     const [volume, setVolume] = useState(50)
@@ -78,7 +78,7 @@ const UiBlock = ({trigger}) => {
             }, 1500);
         }
 
-    }, [currentSongIndex, songData.length])
+    }, [currentSongIndex])
 
 
     // play pause functionality
