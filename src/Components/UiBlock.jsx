@@ -7,7 +7,7 @@ import Playlist from './Playlist';
 
 const UiBlock = ({trigger}) => {
     // context
-    const songData = useContext(PlaylistContext);
+    const {songData} = useContext(PlaylistContext);
 
     //get playlist
     const playlistData = JSON.parse(localStorage.getItem('playlist'))
@@ -78,7 +78,7 @@ const UiBlock = ({trigger}) => {
             }, 1500);
         }
 
-    }, [currentSongIndex])
+    }, [currentSongIndex,songData.length])
 
 
     // play pause functionality

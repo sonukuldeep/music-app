@@ -4,8 +4,10 @@ import {
 } from "react-router-dom";
 import ComponentQueue from './Components/ContentQueue';
 import UiBlock from './Components/UiBlock';
-import NoteState from './Context/Notes/NoteState';
+import PlaylistState from './Context/Notes/PlaylistState';
+import FilterState from './Context/Notes/FilterState';
 import { useState} from 'react'
+
 
 
 
@@ -21,14 +23,16 @@ setTimeout(() => {
 
   return (
     <>
-      <NoteState>
+      <PlaylistState>
+        <FilterState>
         <Router>
           {isTrue && <div className='container'>
             <ComponentQueue triggerFun={setTriggerPlaylist} triggerVal={triggerPlaylist} />
             <UiBlock trigger={triggerPlaylist} />
           </div>}
         </Router>
-      </NoteState>
+        </FilterState>
+      </PlaylistState>
     </>
   );
 }

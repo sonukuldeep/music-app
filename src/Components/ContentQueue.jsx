@@ -10,7 +10,7 @@ import PlaylistContext from "../Context/Notes/PlaylistContext";
 
 const ContentQueue = ({ triggerFun, triggerVal }) => {
     // context
-    const songData = useContext(PlaylistContext);
+    const {songData} = useContext(PlaylistContext);
 
     const [popupstate, setPopupstate] = useState('popup-disable')
     const popupInvoke = () => {

@@ -1,10 +1,15 @@
 import React, {useState, useEffect } from 'react'
 
 const Playlist = ({playlistData,songs,trigger}) => {
-  const [filter, setFilter] = useState(
-    playlistData.filter((song)=>{
-      return song.status === true
-    }))
+  const [filter, setFilter] = useState([])
+  
+  useEffect(()=>{
+    if(playlistData !== null) {
+      setFilter(playlistData.filter((song)=>{
+        return song.status === true
+      }))
+    }
+  },[])  
 
     useEffect(()=>{
       setFilter(playlistData.filter((song)=>{
@@ -14,8 +19,8 @@ const Playlist = ({playlistData,songs,trigger}) => {
 
   return (
     <>
-        {filter.map((x)=>{
-          return <div>{songs[x.id].title} by {songs[x.id].artist}</div>
+        {filter.map((x,index)=>{
+          return <div key={index}>{songs[x.id].title} by {songs[x.id].artist}</div>
         })}
     </>
   )
