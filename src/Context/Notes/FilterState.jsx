@@ -17,7 +17,13 @@ const FilterState = (props) => {
                 setSongData(data);
                 dispatch({ type: 'setFilteredSongs', payload: data, localstorage: songsInLocalStorage })
             })
-    }, [setSongData, songsInLocalStorage]);
+    }, [setSongData]);
+
+    // saving playlist for future sessions
+    useEffect(() => {
+        localStorage.setItem('playlist', JSON.stringify(filteredSongs))
+        console.log(filteredSongs)
+    }, [filteredSongs])
 
 
     return (
@@ -30,11 +36,11 @@ const FilterState = (props) => {
 //reducer function
 function reducer(filteredSongs, action) {
     const { type, songid, payload, localstorage } = action
-    
+
     switch (type) {
         case 'update':
             const temp = filteredSongs.map(item => {
-                if (item.songid === songid)
+                if (item.id === songid)
                     return ({ ...item, status: !item.status })
                 return item;
             })
@@ -60,5 +66,7 @@ function PlaylistStatusGen(songs, playlistInLocalStorage) {
 
     return temp;
 }
+
+
 
 export default FilterState

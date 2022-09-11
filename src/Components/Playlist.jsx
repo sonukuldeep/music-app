@@ -1,26 +1,12 @@
-import React, {useState, useEffect } from 'react'
+import React from 'react'
+import { Link } from 'react-router-dom'
 
-const Playlist = ({playlistData,songs,trigger}) => {  //----> Parent UIBlock
-  const [filteredSongs, setFilteredSongs] = useState([])
+const Playlist = ({songsOnPlaylist,songData,setCurrentSongIndex}) => {  //----> Parent UIBlock
   
-  useEffect(()=>{
-    if(playlistData !== null) {
-      setFilteredSongs(playlistData.filter((song)=>{
-        return song.status === true
-      }))
-    }
-  },[])  
-
-    useEffect(()=>{
-      setFilteredSongs(playlistData.filter((song)=>{
-        return song.status === true
-      }))
-    },[trigger,playlistData])
-
   return (
     <>
-        {filteredSongs.map((item,index)=>{
-          return <div key={index}>{songs[item.id].title} by {songs[item.id].artist}</div>
+        {songsOnPlaylist.map((item,index)=>{
+          return <Link to='#' onClick={()=>{setCurrentSongIndex(index)}}><div key={index}>{songData[index].title} by {songData[index].artist}</div></Link>
         })}
     </>
   )

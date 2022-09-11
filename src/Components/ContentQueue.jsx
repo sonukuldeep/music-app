@@ -3,14 +3,13 @@ import { Link } from 'react-router-dom'
 import logo from '../images/logo.png';
 import SearchQuere from './SearchQuere';
 import { useState, useContext } from 'react'
-import PlaylistContext from "../Context/Notes/PlaylistContext";
+
 
 
 
 
 const ContentQueue = ({ triggerFun, triggerVal }) => {
-    // context
-    const {songData} = useContext(PlaylistContext);
+    
 
     const [popupstate, setPopupstate] = useState('popup-disable')
     const popupInvoke = () => {
@@ -49,7 +48,7 @@ const ContentQueue = ({ triggerFun, triggerVal }) => {
                     </div>
                 </nav>
             </header>
-            <SearchQuere state={popupstate} popupInvoke={popupInvoke} songs={songData} />
+            <SearchQuere state={popupstate} popupInvoke={popupInvoke} />
         </>
     )
 }

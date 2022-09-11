@@ -2,6 +2,7 @@ import './Styles/UB.css';
 import albumArt from "../images/album-art.png";
 import React, { useContext, useState, useEffect, useRef } from "react";
 import PlaylistContext from "../Context/Notes/PlaylistContext";
+import FilteredContext from '../Context/Notes/FilteredContext';
 import Playlist from './Playlist';
 
 
@@ -10,7 +11,10 @@ const UiBlock = ({trigger}) => {
     const {songData} = useContext(PlaylistContext);
 
     //get playlist
-    const playlistData = JSON.parse(localStorage.getItem('playlist'))
+    const {filteredSongs} = useContext(FilteredContext)
+
+    //playlist but only true values
+    const [songsOnPlaylist, setSongsOnPlaylist] = useState([])
 
     // use state
     const [isPlaying, setIsPlaying] = useState(false)
@@ -43,13 +47,22 @@ const UiBlock = ({trigger}) => {
     setInterval(() => {
 
         try {
-            let duration = Math.ceil(audioE1.current.currentTime)            // change is doesn't look good
+            let duration = Math.ceil(audioE1.current.currentTime)            
             setCurrentDuration(timeFormating(duration))
         }
         catch (err) {
-
+            console.log('timeformat function timeout')
         }
     }, 1000);
+
+
+    useEffect(() => {
+
+        setSongsOnPlaylist(filteredSongs.filter((song)=>{
+          return song.status === true
+        }))
+        
+      }, [trigger,filteredSongs])  
 
     // setting next song index, previous song index and current track length
     useEffect(() => {
@@ -103,7 +116,7 @@ const UiBlock = ({trigger}) => {
                             <img src={albumArt} alt='album art'></img>
                         </div>
                         <div className="item">
-                            <Playlist playlistData={playlistData} songs={songData} trigger={trigger} />
+                            <Playlist songsOnPlaylist={songsOnPlaylist} songData={songData} setCurrentSongIndex={setCurrentSongIndex}/>
                         </div>
                         <div className="item audio-element">
                             <audio
