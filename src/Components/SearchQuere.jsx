@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import './SQ.css';
+import './Styles/SQ.css';
 
 
-const SearchQuere = ({ state, popupInvoke, songs }) => {
+const SearchQuere = ({ state, popupInvoke, songs }) => {      // parent ContextQueue
   // const [savedPlaylist, setSavedPlaylist] = useState([])
   const playlistInLocalStorage = JSON.parse(localStorage.getItem('playlist'))
   const [playlistStatus, setPlaylistStatus] = useState(PlaylistStatusGen(songs,playlistInLocalStorage));

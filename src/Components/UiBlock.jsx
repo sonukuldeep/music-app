@@ -1,4 +1,4 @@
-import './UB.css';
+import './Styles/UB.css';
 import albumArt from "../images/album-art.png";
 import React, { useContext, useState, useEffect, useRef } from "react";
 import PlaylistContext from "../Context/Notes/PlaylistContext";
@@ -43,7 +43,7 @@ const UiBlock = ({trigger}) => {
     setInterval(() => {
 
         try {
-            let duration = Math.ceil(audioE1.current.currentTime)
+            let duration = Math.ceil(audioE1.current.currentTime)            // change is doesn't look good
             setCurrentDuration(timeFormating(duration))
         }
         catch (err) {
@@ -69,7 +69,7 @@ const UiBlock = ({trigger}) => {
                 let trackLength = Math.floor(audioE1.current.duration)
                 setCurrentTrackLength(timeFormating(trackLength))
 
-            }, 200);
+            }, 200);                                                            // change this too
         } catch {
             setTimeout(() => {
                 let trackLength = Math.floor(audioE1.current.duration)
@@ -104,9 +104,6 @@ const UiBlock = ({trigger}) => {
                         </div>
                         <div className="item">
                             <Playlist playlistData={playlistData} songs={songData} trigger={trigger} />
-                            {/* {songData.map((song,index)=>{
-                                return <Playlist key={index} title={song.title} artist={song.artist}/>
-                            })} */}
                         </div>
                         <div className="item audio-element">
                             <audio

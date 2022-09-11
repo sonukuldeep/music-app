@@ -7,7 +7,7 @@ import React from 'react'
 const FilterState = (props) => {
     const { songData, setSongData } = useContext(PlaylistContext)
     const songsInLocalStorage = JSON.parse(localStorage.getItem('playlist'))
-    const [filter, dispatch] = useReducer(reducer, PlaylistStatusGen(songData, songsInLocalStorage))
+    const [filteredSongs, dispatch] = useReducer(reducer, PlaylistStatusGen(songData, songsInLocalStorage))
 
 
     useEffect(() => {
@@ -15,40 +15,36 @@ const FilterState = (props) => {
             .then(res => { return res.json(); })
             .then(data => {
                 setSongData(data);
-                dispatch({ type: 'setFilter', payload: data, localstorage: songsInLocalStorage })
+                dispatch({ type: 'setFilteredSongs', payload: data, localstorage: songsInLocalStorage })
             })
     }, [setSongData, songsInLocalStorage]);
 
-    // useEffect(() => {
-    //     console.log(filter)
-    // }, [filter])
-
 
     return (
-        <FilteredContext.Provider value={{ filter, dispatch }}>
+        <FilteredContext.Provider value={{ filteredSongs, dispatch }}>
             {props.children}
         </FilteredContext.Provider>
     )
 }
 
 //reducer function
-function reducer(filter, action) {
+function reducer(filteredSongs, action) {
     const { type, songid, payload, localstorage } = action
     
     switch (type) {
         case 'update':
-            const temp = filter.map(item => {
+            const temp = filteredSongs.map(item => {
                 if (item.songid === songid)
                     return ({ ...item, status: !item.status })
                 return item;
             })
             return (temp)
 
-        case 'setFilter':
+        case 'setFilteredSongs':
             return PlaylistStatusGen(payload, localstorage)
 
         default:
-            return filter
+            return filteredSongs
     }
 
 }

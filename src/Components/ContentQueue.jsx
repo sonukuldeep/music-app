@@ -1,4 +1,4 @@
-import './CQS.css';
+import './Styles/CQS.css';
 import { Link } from 'react-router-dom'
 import logo from '../images/logo.png';
 import SearchQuere from './SearchQuere';
@@ -20,7 +20,7 @@ const ContentQueue = ({ triggerFun, triggerVal }) => {
             setPopupstate('popup-disable'); 
             triggerFun(!triggerVal)
         }
-        // console.log('popup invoked ',popupstate);
+        
     }
     return (
         <>
