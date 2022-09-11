@@ -6,12 +6,12 @@ import FilteredContext from '../Context/Notes/FilteredContext';
 import Playlist from './Playlist';
 
 
-const UiBlock = ({trigger}) => {
+const UiBlock = ({ trigger }) => {
     // context
-    const {songData} = useContext(PlaylistContext);
+    const { songData } = useContext(PlaylistContext);
 
     //get playlist
-    const {filteredSongs} = useContext(FilteredContext)
+    const { filteredSongs } = useContext(FilteredContext)
 
     //playlist but only true values
     const [songsOnPlaylist, setSongsOnPlaylist] = useState([])
@@ -47,7 +47,7 @@ const UiBlock = ({trigger}) => {
     setInterval(() => {
 
         try {
-            let duration = Math.ceil(audioE1.current.currentTime)            
+            let duration = Math.ceil(audioE1.current.currentTime)
             setCurrentDuration(timeFormating(duration))
         }
         catch (err) {
@@ -58,22 +58,25 @@ const UiBlock = ({trigger}) => {
 
     useEffect(() => {
 
-        setSongsOnPlaylist(filteredSongs.filter((song)=>{
-          return song.status === true
+        setSongsOnPlaylist(filteredSongs.filter((song) => {
+            return song.status === true
         }))
-        
-      }, [trigger,filteredSongs])  
+
+    }, [trigger, filteredSongs])
 
     // setting next song index, previous song index and current track length
     useEffect(() => {
         audioE1.current.play()
 
         setNextSongIndex(() => {
-            return ((currentSongIndex + 1) > (songData.length - 1) ? 0 : (currentSongIndex + 1));
+            
+            return ((currentSongIndex + 1) > (songsOnPlaylist.length - 1) ? 0 : (currentSongIndex + 1));
         }
         )
         setPreviousSong(() => {
-            return (currentSongIndex === 0) ? (songData.length - 1) : (currentSongIndex - 1)
+            console.log(songsOnPlaylist)
+
+            return (currentSongIndex === 0) ? (songsOnPlaylist.length - 1) : (currentSongIndex - 1)
         })
 
         //need a better solution
@@ -91,7 +94,7 @@ const UiBlock = ({trigger}) => {
             }, 1500);
         }
 
-    }, [currentSongIndex,songData.length])
+    }, [currentSongIndex, songData.length])
 
 
     // play pause functionality
@@ -116,7 +119,7 @@ const UiBlock = ({trigger}) => {
                             <img src={albumArt} alt='album art'></img>
                         </div>
                         <div className="item">
-                            <Playlist songsOnPlaylist={songsOnPlaylist} songData={songData} setCurrentSongIndex={setCurrentSongIndex}/>
+                            <Playlist songsOnPlaylist={songsOnPlaylist} songData={songData} setCurrentSongIndex={setCurrentSongIndex} />
                         </div>
                         <div className="item audio-element">
                             <audio

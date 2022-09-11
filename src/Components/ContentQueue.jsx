@@ -2,11 +2,7 @@ import './Styles/CQS.css';
 import { Link } from 'react-router-dom'
 import logo from '../images/logo.png';
 import SearchQuere from './SearchQuere';
-import { useState, useContext } from 'react'
-
-
-
-
+import { useState} from 'react'
 
 const ContentQueue = ({ triggerFun, triggerVal }) => {
     

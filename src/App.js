@@ -12,8 +12,6 @@ import { useState} from 'react'
 
 
 function App() {
-  // check if data loaded or not
-  // const songData = useContext(NoteContext);
   const [isTrue, setIsTrue] = useState(false)
   const [triggerPlaylist, setTriggerPlaylist] = useState(false)
 

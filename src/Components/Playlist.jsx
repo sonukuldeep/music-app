@@ -6,7 +6,7 @@ const Playlist = ({songsOnPlaylist,songData,setCurrentSongIndex}) => {  //----> 
   return (
     <>
         {songsOnPlaylist.map((item,index)=>{
-          return <Link to='#' onClick={()=>{setCurrentSongIndex(index)}}><div key={index}>{songData[index].title} by {songData[index].artist}</div></Link>
+          return <Link to='#' key={index} onClick={()=>{setCurrentSongIndex(index)}}><div>{songData[index].title} by {songData[index].artist}</div></Link>
         })}
     </>
   )
