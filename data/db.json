@@ -3,28 +3,28 @@
         {
             "title": "Baby be mine",
             "artist": "Amaksi",
-            "image": "",
+            "image": "https://images.pexels.com/photos/534283/pexels-photo-534283.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
             "audioSrc": "http://localhost:9000/Baby%20be%20mine.mp3",
             "songid": 0
         },
         {
             "title": "Beat it",
             "artist": "Leonell Cassio",
-            "image": "",
+            "image": "https://images.pexels.com/photos/63696/pexels-photo-63696.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
             "audioSrc": "http://localhost:9000/Beat%20it.mp3",
             "songid": 1
         },
         {
             "title": "Billie Jean",
             "artist": "Prazkhal",
-            "image": "",
+            "image": "https://images.pexels.com/photos/3825752/pexels-photo-3825752.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
             "audioSrc": "http://localhost:9000/Billie%20Jean%20%28home%20demo%201981%29.mp3",
             "songid": 2
         },
         {
             "title": "Thiriller",
             "artist": "Coma-media",
-            "image": "",
+            "image": "https://images.pexels.com/photos/1540319/pexels-photo-1540319.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
             "audioSrc": "http://localhost:9000/Thriller.mp3",
             "songid": 3
         },
