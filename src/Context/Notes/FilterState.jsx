@@ -40,7 +40,7 @@ function reducer(filteredSongs, action) {
     switch (type) {
         case 'update':
             const temp = filteredSongs.map(item => {
-                if (item.id === songid)
+                if (item.songid === songid)
                     return ({ ...item, status: !item.status })
                 return item;
             })

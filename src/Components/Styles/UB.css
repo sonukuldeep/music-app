@@ -1,53 +1,50 @@
+:root {
+    --color-bg-primary: #222;
+}
 
 .UI-block {
-    display: grid;
-    grid-template-columns: 33.3% 33.3%;
-    gap: 5px;
-    justify-content: center;
-    margin: 50px;
-
-}
-.UI-block .item{
-    background: black;
-}
-.UI-block .item img{
-    max-width: 350px;
-}
-
-.item:nth-child(3){
-    grid-column: 1 / span 2;
-}
-
-
-
-.item:nth-child(2) {
-    color: wheat;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
 }
 
-a {
-    text-decoration: none;
+.item {
+    box-sizing: content-box;
+    width: 300px;
+}
+
+.item:nth-child(1) {
+    height: 200px;
+    overflow: hidden;
+    border-bottom: 30px solid var(--color-bg-primary);
+    border-left: 30px solid var(--color-bg-primary);
+    border-right: 30px solid var(--color-bg-primary);
+
+
+}
+
+.item:nth-child(2) {
+    border-bottom: 30px solid var(--color-bg-primary);
+    border-left: 30px solid var(--color-bg-primary);
+    border-right: 30px solid var(--color-bg-primary);
+    height: 200px;
+    overflow: auto;
+}
+
+.item:nth-child(3) {
+    border-bottom: 30px solid var(--color-bg-primary);
+    border-left: 30px solid var(--color-bg-primary);
+    border-right: 30px solid var(--color-bg-primary);
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
     
 }
 
-button {
-    padding: 8px 5px;
-    margin: 5px;
-    background-color: #141414;
-    color: white;
-    font-weight: bolder;
-    border: none;
-    border-radius: 10px;
-    /* outline:none */
+.playerControls img {
+    width: 15px;
 }
 
-button:hover {
-    box-shadow: 0 0 5px 2px skyblue;
-}
+.playerControls {
 
-span {
-    color: white;
+    background-color: aquamarine;
 }

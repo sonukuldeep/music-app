@@ -4,7 +4,12 @@ import React, { useContext, useState, useEffect, useRef } from "react";
 import PlaylistContext from "../Context/Notes/PlaylistContext";
 import FilteredContext from '../Context/Notes/FilteredContext';
 import Playlist from './Playlist';
-
+import back from '../images/icons/back.png'
+import pause from '../images/icons/pause.png'
+import play from '../images/icons/play.png'
+import shuffle from '../images/icons/shuffle.png'
+import mute from '../images/icons/volume-mute.png'
+import volume from '../images/icons/volume.png'
 
 const UiBlock = ({ trigger }) => {
     // context
@@ -24,11 +29,13 @@ const UiBlock = ({ trigger }) => {
     const [currentTrackLength, setCurrentTrackLength] = useState(0)
     const [currentDuration, setCurrentDuration] = useState(0)
     const [volume, setVolume] = useState(50)
-
+    const iconRoot = '../images/icons/'
+    const icons = {back:'back.png',pause:'pause.png',play:'play.png',shuffle:'shuffle.png',volumeMute:'volume-mute.png',volume:'volume.png'}
 
     // use ref
     const audioE1 = useRef(0)
     const volumeSlider = useRef(0)
+   
 
     //random function for shuffle
     function getRanSongIndex() {
@@ -74,8 +81,7 @@ const UiBlock = ({ trigger }) => {
         }
         )
         setPreviousSong(() => {
-            console.log(songsOnPlaylist)
-
+            
             return (currentSongIndex === 0) ? (songsOnPlaylist.length - 1) : (currentSongIndex - 1)
         })
 
@@ -95,7 +101,7 @@ const UiBlock = ({ trigger }) => {
         }
 
     }, [currentSongIndex, songData.length])
-
+    
 
     // play pause functionality
     useEffect(() => {
@@ -108,7 +114,7 @@ const UiBlock = ({ trigger }) => {
         audioE1.current.volume = volume / 100
     }, [volume])
 
-
+    
 
     return (
         <>
@@ -130,11 +136,11 @@ const UiBlock = ({ trigger }) => {
                             >
                             </audio>
                             <div>
-                                <button className='playerControls' onClick={() => { setCurrentSongIndex(previousSong) }}>Previous</button>
-                                <button className='playerControls' onClick={() => { setCurrentSongIndex(nextSongIndex) }}>Next</button>
-                                <button className='playerControls' onClick={getRanSongIndex}>Shuffle</button>
-                                <button className='playerControls' onClick={muteUnmute}>Mute/Unmute</button>
-                                <button className='playerControls' onClick={() => { setIsPlaying(!isPlaying) }}>Play/Pause</button>
+                                <button className='playerControls' onClick={() => { setCurrentSongIndex(previousSong) }}><img src={back} alt='back'></img></button>
+                                <button className='playerControls' onClick={() => { setCurrentSongIndex(nextSongIndex) }}><img src={back} alt='next'></img></button>
+                                <button className='playerControls' onClick={getRanSongIndex}><img src={shuffle} alt='shuffle'></img></button>
+                                <button className='playerControls' onClick={muteUnmute}><img src={mute} alt='volume'></img></button>
+                                <button className='playerControls' onClick={() => { setIsPlaying(!isPlaying) }}><img src={play} alt='play'></img></button>
                                 <div>
                                     <span>{currentDuration}</span>
                                     <span> / {currentTrackLength}</span>
