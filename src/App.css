@@ -5,6 +5,9 @@
 }
 
 .container {
-  max-width: 95%;
+  max-width: 100%;
   margin: 0 auto;
+  background: linear-gradient(#F9d967,#f39f86);
+  height: 100vh;
 }
+

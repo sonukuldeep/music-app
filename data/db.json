@@ -1,17 +1,17 @@
 {
     "playlist": [
         {
-            "title": "Baby be mine",
-            "artist": "Amaksi",
-            "image": "https://images.pexels.com/photos/534283/pexels-photo-534283.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-            "audioSrc": "http://localhost:9000/Baby%20be%20mine.mp3",
+            "title": "Uptown Funk",
+            "artist": "Bruno Mars",
+            "image": "https://i.pinimg.com/originals/b3/fd/e4/b3fde44063525c0d7183284d00c19bea.jpg",
+            "audioSrc": "https://archive.org/download/markronsonuptownfunkofficialvideoft.brunomars_201909/Mark%20Ronson%20-%20Uptown%20Funk%20%28Official%20Video%29%20ft.%20Bruno%20Mars.mp3",
             "songid": 0
         },
         {
-            "title": "Beat it",
-            "artist": "Leonell Cassio",
-            "image": "https://images.pexels.com/photos/63696/pexels-photo-63696.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-            "audioSrc": "http://localhost:9000/Beat%20it.mp3",
+            "title": "Friends",
+            "artist": "Anne Marie",
+            "image": "https://m.media-amazon.com/images/M/MV5BNmY0OWFlMzYtMDNkZC00YTdhLWI4ZWEtM2I5OWZlYzVkNGQzXkEyXkFqcGdeQXVyNjE0ODc0MDc@._V1_.jpg",
+            "audioSrc": "https://archive.org/download/anne-marie-friends/anne-marie-friends",
             "songid": 1
         },
         {
